@@ -167,7 +167,7 @@ Type class instances can be defined in one of two places: in the same module tha
 
 ## Exercises
 
-1. (Easy) Define a `Show` instance for `Point`. Match the same output as the `showPoint` function from the previous chapter. _Note:_ Point is now a `newtype` (instead of a `type` synonym), which allows us to customize how to `show` it. Otherwise, we'd be stuck with the default `Show` instance for records.
+1. (Easy) Define a `Show` instance for `Point`. Match the same output as the `showPoint` function from chapter 4. _Note:_ Point is now a `newtype` (instead of a `type` synonym), which allows us to customize how to `show` it. Otherwise, we'd be stuck with the default `Show` instance for records.
 
     ```haskell
     {{#include ../exercises/chapter6/test/no-peeking/Solutions.purs:Point}}
@@ -372,13 +372,13 @@ The following newtype represents a complex number:
 
 4. (Easy) Derive (via `newtype`) a `Ring` instance for `Complex`. _Note_: You may instead write this instance manually, but that's not as convenient.
 
-    Here's the `Shape` ADT from the previous chapter:
+    Here's the `Shape` ADT from chapter 4:
 
     ```haskell
     {{#include ../exercises/chapter6/test/no-peeking/Solutions.purs:Shape}}
     ```
 
-5. (Medium) Derive (via `Generic`) a `Show` instance for `Shape`. How does the amount of code written and `String` output compare to `showShape` from the previous chapter? _Hint_: See the [Deriving from `Generic`](https://github.com/purescript/documentation/blob/master/guides/Type-Class-Deriving.md#deriving-from-generic) section of the [Type Class Deriving](https://github.com/purescript/documentation/blob/master/guides/Type-Class-Deriving.md) guide.
+5. (Medium) Derive (via `Generic`) a `Show` instance for `Shape`. How does the amount of code written and `String` output compare to `showShape` chapter 4? _Hint_: See the [Deriving from `Generic`](https://github.com/purescript/documentation/blob/master/guides/Type-Class-Deriving.md#deriving-from-generic) section of the [Type Class Deriving](https://github.com/purescript/documentation/blob/master/guides/Type-Class-Deriving.md) guide.
 
 ## Type Class Constraints
 
