@@ -378,7 +378,7 @@ The following newtype represents a complex number:
     {{#include ../exercises/chapter6/test/no-peeking/Solutions.purs:Shape}}
     ```
 
-5. (Medium) Derive (via `Generic`) a `Show` instance for `Shape`. How does the amount of code written and `String` output compare to `showShape` chapter 4? _Hint_: See the [Deriving from `Generic`](https://github.com/purescript/documentation/blob/master/guides/Type-Class-Deriving.md#deriving-from-generic) section of the [Type Class Deriving](https://github.com/purescript/documentation/blob/master/guides/Type-Class-Deriving.md) guide.
+5. (Medium) Derive (via `Generic`) a `Show` instance for `Shape`. How does the amount of code written and `String` output compare to `showShape` from chapter 4? _Hint_: See the [Deriving from `Generic`](https://github.com/purescript/documentation/blob/master/guides/Type-Class-Deriving.md#deriving-from-generic) section of the [Type Class Deriving](https://github.com/purescript/documentation/blob/master/guides/Type-Class-Deriving.md) guide.
 
 ## Type Class Constraints
 
