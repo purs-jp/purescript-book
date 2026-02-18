@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html lang="ja" class="light" dir="ltr">
+<html lang="ja" class="light sidebar-visible" dir="ltr">
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
@@ -8,45 +8,59 @@
 
 
         <!-- Custom HTML head -->
-        
+
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="theme-color" content="#ffffff">
 
-        <link rel="icon" href="favicon.svg">
-        <link rel="shortcut icon" href="favicon.png">
-        <link rel="stylesheet" href="css/variables.css">
-        <link rel="stylesheet" href="css/general.css">
-        <link rel="stylesheet" href="css/chrome.css">
-        <link rel="stylesheet" href="css/print.css" media="print">
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
 
         <!-- Fonts -->
-        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
-        <link rel="stylesheet" href="fonts/fonts.css">
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
 
         <!-- Highlight.js Stylesheets -->
-        <link rel="stylesheet" href="highlight.css">
-        <link rel="stylesheet" href="tomorrow-night.css">
-        <link rel="stylesheet" href="ayu-highlight.css">
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
 
         <!-- Custom theme stylesheets -->
 
         <!-- MathJax -->
         <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    </head>
-    <body class="sidebar-visible no-js">
-    <div id="body-container">
-        <!-- Provide site root to javascript -->
-        <script>
-            var path_to_root = "";
-            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
-        </script>
 
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-45fcd35a.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-0342c3d8.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
         <!-- Work around some values being stored in localStorage wrapped in quotes -->
         <script>
             try {
-                var theme = localStorage.getItem('mdbook-theme');
-                var sidebar = localStorage.getItem('mdbook-sidebar');
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
 
                 if (theme.startsWith('"') && theme.endsWith('"')) {
                     localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
@@ -60,87 +74,69 @@
 
         <!-- Set the theme before any content is loaded, prevents flash -->
         <script>
-            var theme;
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
             try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
             if (theme === null || theme === undefined) { theme = default_theme; }
-            var html = document.querySelector('html');
+            const html = document.documentElement;
             html.classList.remove('light')
             html.classList.add(theme);
-            var body = document.querySelector('body');
-            body.classList.remove('no-js')
-            body.classList.add('js');
+            html.classList.add("js");
         </script>
 
-        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
 
         <!-- Hide / unhide sidebar before it is displayed -->
         <script>
-            var body = document.querySelector('body');
-            var sidebar = null;
-            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
             if (document.body.clientWidth >= 1080) {
                 try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
                 sidebar = sidebar || 'visible';
             } else {
                 sidebar = 'hidden';
+                sidebar_toggle.checked = false;
             }
-            sidebar_toggle.checked = sidebar === 'visible';
-            body.classList.remove('sidebar-visible');
-            body.classList.add("sidebar-" + sidebar);
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
         </script>
 
-        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
-            <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="index.html">序文</a></li><li class="chapter-item expanded "><a href="chapter1.html"><strong aria-hidden="true">1.</strong> 導入</a></li><li class="chapter-item expanded "><a href="chapter2.html"><strong aria-hidden="true">2.</strong> はじめよう</a></li><li class="chapter-item expanded "><a href="chapter3.html"><strong aria-hidden="true">3.</strong> 関数とレコード</a></li><li class="chapter-item expanded "><a href="chapter4.html"><strong aria-hidden="true">4.</strong> パターン照合</a></li><li class="chapter-item expanded "><a href="chapter5.html"><strong aria-hidden="true">5.</strong> 再帰、マップ、畳み込み</a></li><li class="chapter-item expanded "><a href="chapter6.html"><strong aria-hidden="true">6.</strong> 型クラス</a></li><li class="chapter-item expanded "><a href="chapter7.html"><strong aria-hidden="true">7.</strong> アプリカティブによる検証</a></li><li class="chapter-item expanded "><a href="chapter8.html"><strong aria-hidden="true">8.</strong> 作用モナド</a></li><li class="chapter-item expanded "><a href="chapter9.html"><strong aria-hidden="true">9.</strong> 非同期作用</a></li><li class="chapter-item expanded "><a href="chapter10.html"><strong aria-hidden="true">10.</strong> 外部関数インターフェース</a></li><li class="chapter-item expanded "><a href="chapter11.html"><strong aria-hidden="true">11.</strong> モナドな冒険</a></li><li class="chapter-item expanded "><a href="chapter12.html"><strong aria-hidden="true">12.</strong> Canvasグラフィックス</a></li><li class="chapter-item expanded "><a href="chapter13.html"><strong aria-hidden="true">13.</strong> テストの自動生成</a></li><li class="chapter-item expanded "><a href="chapter14.html"><strong aria-hidden="true">14.</strong> 領域特化言語</a></li></ol>
-            </div>
-            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
                 <div class="sidebar-resize-indicator"></div>
             </div>
         </nav>
 
-        <!-- Track and set sidebar scroll position -->
-        <script>
-            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
-            sidebarScrollbox.addEventListener('click', function(e) {
-                if (e.target.tagName === 'A') {
-                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
-                }
-            }, { passive: true });
-            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
-            sessionStorage.removeItem('sidebar-scroll');
-            if (sidebarScrollTop) {
-                // preserve sidebar scroll position when navigating via links within sidebar
-                sidebarScrollbox.scrollTop = sidebarScrollTop;
-            } else {
-                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
-                var activeSection = document.querySelector('#sidebar .active');
-                if (activeSection) {
-                    activeSection.scrollIntoView({ block: 'center' });
-                }
-            }
-        </script>
-
-        <div id="page-wrapper" class="page-wrapper">
+        <div id="mdbook-page-wrapper" class="page-wrapper">
 
             <div class="page">
-                                <div id="menu-bar-hover-placeholder"></div>
-                <div id="menu-bar" class="menu-bar sticky">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
                     <div class="left-buttons">
-                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
-                            <i class="fa fa-bars"></i>
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
                         </label>
-                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
-                            <i class="fa fa-paint-brush"></i>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
                         </button>
-                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
-                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
-                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
                         </ul>
-                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
-                            <i class="fa fa-search"></i>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
                         </button>
                     </div>
 
@@ -148,45 +144,50 @@
 
                     <div class="right-buttons">
                         <a href="print.html" title="Print this book" aria-label="Print this book">
-                            <i id="print-button" class="fa fa-print"></i>
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
                         </a>
                         <a href="https://github.com/gemmaro/purescript-book" title="Git repository" aria-label="Git repository">
-                            <i id="git-repository-button" class="fa fa-github"></i>
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg></span>
                         </a>
 
                     </div>
                 </div>
 
-                <div id="search-wrapper" class="hidden">
-                    <form id="searchbar-outer" class="searchbar-outer">
-                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
                     </form>
-                    <div id="searchresults-outer" class="searchresults-outer hidden">
-                        <div id="searchresults-header" class="searchresults-header"></div>
-                        <ul id="searchresults">
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
                         </ul>
                     </div>
                 </div>
 
                 <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
                 <script>
-                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
-                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
-                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
                         link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
                     });
                 </script>
 
-                <div id="content" class="content">
+                <div id="mdbook-content" class="content">
                     <main>
                         <h1 id="実例によるpurescript"><a class="header" href="#実例によるpurescript">実例によるPureScript</a></h1>
 <p>このリポジトリには、Phil Freemanによる<em>PureScript by
 Example</em>の<a href="https://github.com/purescript-contrib/purescript-book/">コミュニティフォーク</a>が含まれます。
-同書は "The PureScript book" としても知られています。
+同書は “The PureScript book” としても知られています。
 このバージョンはコードと演習が最近のバージョンのコンパイラ、ライブラリ、ツールで動くように更新されています。
 PureScriptのエコシステムの最新の機能を紹介すべく書き直された章もあります。</p>
 <p>本書をお楽しみいただき、お役立ちいただけましたら、<a href="https://leanpub.com/purescript">Leanpubの原書</a>の購入をご検討ください。</p>
-<p>翻訳：<a href="https://gemmaro.github.io/purescript-book/">日本語（本訳）</a></p>
+<p>翻訳：<a href="https://purs-jp.github.io/purescript-book/">日本語（本訳）</a></p>
 <h2 id="現状"><a class="header" href="#現状">現状</a></h2>
 <p>本書は言語の進化に伴って継続的に更新されているため、内容に関して発見したどんな<a href="https://github.com/purescript-contrib/purescript-book/issues">問題</a>でもご報告ください。
 より初心者にやさしくできそうな分かりづらい節を指摘するような単純なものであれ、共有いただいたどんなフィードバックにも感謝します。</p>
@@ -221,8 +222,7 @@ Repo</a>, which uses the same
 license, and is copyright <a href="https://github.com/purescript/documentation/blob/master/CONTRIBUTORS.md">various
 contributors</a>.</p>
 <p>The exercises are licensed under the MIT license.</p>
-<hr />
-<small>
+<hr><small>
 <p>Copyright (C) 2015-2018 aratama.<br>
 Copyright (C) 2022, 2023 gemmaro.</p>
 <p>この翻訳は<a href="https://github.com/aratama">aratama</a>氏による翻訳を元に改変を加えています。
@@ -234,7 +234,8 @@ Copyright (C) 2022, 2023 gemmaro.</p>
 </blockquote>
 <p>本翻訳も原文と原翻訳にしたがい、
 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_US">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>の下に使用が許諾されます。</p>
-</small><div style="break-before: page; page-break-before: always;"></div><h1 id="導入"><a class="header" href="#導入">導入</a></h1>
+</small><div style="break-before: page; page-break-before: always;"></div>
+<h1 id="導入"><a class="header" href="#導入">導入</a></h1>
 <h2 id="関数型javascript"><a class="header" href="#関数型javascript">関数型JavaScript</a></h2>
 <p>関数型プログラミングの手法がJavaScriptに姿を現しはじめてからしばらく経ちます。</p>
 <ul>
@@ -379,7 +380,7 @@ main = log "Hello, World!"
 <li><a href="https://discord.gg/vKn9up84bp">PureScriptのDiscordサーバ</a>は抱えている問題についてチャットするのに良い場所です。
 こちらのサーバはPureScriptについてのチャット専用です。</li>
 <li><a href="https://discourse.purescript.org/">PureScriptのDiscourseフォーラム</a>もよくある問題への解決策を探すのに良い場所です。</li>
-<li><a href="https://github.com/jordanmartinez/purescript-jordans-reference">PureScript: Jordan's
+<li><a href="https://github.com/jordanmartinez/purescript-jordans-reference">PureScript: Jordan’s
 Reference</a>は別のかなり深く踏み込んだ学習資料です。
 本書中の概念で理解しにくいものがあったら、そちらの参考書の対応する節を読むとよいでしょう。</li>
 <li><a href="https://pursuit.purescript.org">Pursuit</a>はPureScriptの型と関数を検索できるデータベースです。
@@ -413,7 +414,8 @@ CPC上のBASICでまだ幼い時にプログラミングを始めました。
 Attribution 4.0
 license</a>の条件の下で再利用させて頂いています 。</p>
 <p>最後に、本書の内容に関する反応や訂正をくださった全ての方に、心より感謝したいと思います。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="はじめよう"><a class="header" href="#はじめよう">はじめよう</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="はじめよう"><a class="header" href="#はじめよう">はじめよう</a></h1>
 <h2 id="この章の目標"><a class="header" href="#この章の目標">この章の目標</a></h2>
 <p>本章では実際のPureScriptの開発環境を立ち上げ、幾つかの演習を解き、本書で提供されているテストを使って答えを確認します。
 もし映像を見る学習の仕方が合っているようでしたら、<a href="https://www.youtube.com/watch?v=GPjPwb6d-70">本章を通しで進めるビデオ</a>が役に立つでしょう。</p>
@@ -532,7 +534,8 @@ All 4 tests passed! 🎉
 ネタバレをするよりも小さな手掛かりをあげたいからです。
 もっとエレガントな解法（とはいえ本書で押さえられている知識のみで済むもの）を見つけたときはPRを送ってください。</p>
 <p>リポジトリは継続して改訂されているため、それぞれの新しい章を始める前に更新を確認するようにしてください。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="関数とレコード"><a class="header" href="#関数とレコード">関数とレコード</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="関数とレコード"><a class="header" href="#関数とレコード">関数とレコード</a></h1>
 <h2 id="この章の目標-1"><a class="header" href="#この章の目標-1">この章の目標</a></h2>
 <p>この章では、関数及びレコードというPureScriptプログラムの2つの構成要素を導入します。更に、どのようにPureScriptプログラムを構造化するのか、どのように型をプログラム開発に役立てるかを見ていきます。</p>
 <p>連絡先のリストを管理する簡単な住所録アプリケーションを作成していきます。
@@ -1168,7 +1171,8 @@ add5 x = 5 `(+)` x  -- よおポチ、中置に目がないっていうから、
 <li>イータ変換や関数合成のような技法を使ってより分かりやすい仕様にリファクタする。</li>
 </ul>
 <p>次の章からは、これらの考えかたに基づいて進めていきます。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="パターン照合"><a class="header" href="#パターン照合">パターン照合</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="パターン照合"><a class="header" href="#パターン照合">パターン照合</a></h1>
 <blockquote>
 <p>一時的な注意事項：本章に取り組まれているようでしたら、2023年11月に第4章と第5章とが入れ替わっていることにお気を付けください。</p>
 </blockquote>
@@ -1403,7 +1407,7 @@ sortPair arr = arr
 </code></pre>
 <p>このようにすれば対が既に整列されているときに新しい配列を割り当てなくて済みます。
 なお、もし入力の配列が<em>厳密に</em>2つの要素を含んでいなければ、たとえ整列されていなかったとしても、この関数は単に元のまま変えずに返します。</p>
-<h2 id="演習-4"><a class="header" href="#演習-4">演習</a></h2>
+<h2 id="演習-1-1"><a class="header" href="#演習-1-1">演習</a></h2>
 <ol>
 <li>（簡単）レコードパターンを使って、2つの <code>Person</code>レコードが同じ都市にいるか調べる関数 <code>sameCity</code>を定義してみましょう。</li>
 <li>（普通）行多相を考慮すると、 <code>sameCity</code>関数の最も一般的な型は何でしょうか。
@@ -1586,7 +1590,7 @@ showPoint { x, y } =
 もし <code>Shape</code>が <code>Circle</code>構築子に照合した場合、2つの変数パターン <code>c</code>と
 <code>r</code>を使って<code>Circle</code>の引数（中心と半径）がスコープに導入されます。
 その他の場合も同様です。</p>
-<h2 id="演習-5"><a class="header" href="#演習-5">演習</a></h2>
+<h2 id="演習-2-1"><a class="header" href="#演習-2-1">演習</a></h2>
 <ol>
 <li>（簡単）<code>Circle</code>（型は<code>Shape</code>）を構築する関数<code>circleAtOrigin</code>を書いてください。
 中心は原点にあり、半径は<code>10.0</code>です。</li>
@@ -1664,7 +1668,7 @@ current = calculateCurrent lightbulb lightbulb -- 捕捉されないミス
 前述の<code>Amp</code>と<code>Volt</code>の場合がこれです。</p>
 <p>newtypeの別の応用は、実行時表現を変えることなく、既存の型に異なる <em>挙動</em> を加えることです。その利用例については次章で <em>型クラス</em>
 をお話しするときに押さえます。</p>
-<h2 id="演習-6"><a class="header" href="#演習-6">演習</a></h2>
+<h2 id="演習-3-1"><a class="header" href="#演習-3-1">演習</a></h2>
 <ol>
 <li>（簡単）<code>Watt</code>を<code>Number</code>の<code>newtype</code>として定義してください。それからこの新しい<code>Watt</code>型と前述の<code>Amp</code>と<code>Volt</code>の定義を使って<code>calculateWattage</code>関数を定義してください。</li>
 </ol>
@@ -1717,7 +1721,7 @@ bounds = foldl combine emptyBounds
 <code>combine</code>は<code>foldl</code>の再帰呼び出しで計算された外接矩形と、配列内の次の
 <code>Shape</code>を引数に取り、ユーザ定義の演算子<code>union</code>を使って2つの外接矩形の和を計算しています。
 <code>shapeBounds</code>関数は、パターン照合を使用して、単一の図形の外接矩形を計算します。</p>
-<h2 id="演習-7"><a class="header" href="#演習-7">演習</a></h2>
+<h2 id="演習-4"><a class="header" href="#演習-4">演習</a></h2>
 <ol>
 <li>（普通）ベクターグラフィックライブラリを拡張し、<code>Shape</code>の面積を計算する新しい操作 <code>area</code>を追加してください。
 この演習の目的上は、線分やテキストの面積は0であるものとしてください。</li>
@@ -1734,7 +1738,8 @@ bounds = foldl combine emptyBounds
 <p>最後に<em>行多相</em>を扱いました。
 これは強力な抽象化をする型であり、これにより多くの既存のJavaScript関数に型を与えられます。</p>
 <p>本書では今後も代数的データ型とパターン照合をいろんなところで使用するので、今のうちにこれらに習熟しておくと後で実を結ぶことでしょう。これ以外にも独自の代数的データ型を作成し、パターン照合を使用してそれらの型を使う関数を書いてみてください。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="再帰マップ畳み込み"><a class="header" href="#再帰マップ畳み込み">再帰、マップ、畳み込み</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="再帰マップ畳み込み"><a class="header" href="#再帰マップ畳み込み">再帰、マップ、畳み込み</a></h1>
 <blockquote>
 <p>一時的な注意事項：本章に取り組まれているようでしたら、2023年11月に第4章と第5章とが入れ替わっていることにお気を付けください。</p>
 </blockquote>
@@ -1802,7 +1807,7 @@ length arr = 1 + (length $ fromMaybe [] $ tail arr)
 <code>fromMaybe</code>関数は既定値と<code>Maybe</code>値を取ります。
 後者が<code>Nothing</code>であれば既定値を返し、そうでなければ<code>Just</code>に包まれた値を返します。</p>
 <p>JavaScriptで配列の長さを調べるのには、この例はどう見ても実用的な方法とはいえませんが、次の演習を完遂するための手掛かりとしては充分でしょう。</p>
-<h2 id="演習-8"><a class="header" href="#演習-8">演習</a></h2>
+<h2 id="演習-5"><a class="header" href="#演習-5">演習</a></h2>
 <ol>
 <li>（簡単）入力が偶数であるとき、かつそのときに限り<code>true</code>に返す再帰関数<code>isEven</code>を書いてみましょう。</li>
 <li>（普通）配列内の偶数の整数を数える再帰関数<code>countEven</code>を書いてみましょう。
@@ -1888,7 +1893,7 @@ forall (f :: Type -&gt; Type) (a :: Type) (b :: Type). Functor f =&gt; (a -&gt; 
 &gt; filter (\n -&gt; n `mod` 2 == 0) (1 .. 10)
 [2,4,6,8,10]
 </code></pre>
-<h2 id="演習-9"><a class="header" href="#演習-9">演習</a></h2>
+<h2 id="演習-1-2"><a class="header" href="#演習-1-2">演習</a></h2>
 <ol>
 <li>（簡単）<code>map</code>関数や<code>&lt;$&gt;</code>関数を使用して、 配列に格納された数のそれぞれの平方を計算する関数<code>squared</code>を書いてみましょう。
 <em>手掛かり</em>：<code>map</code>や<code>&lt;$&gt;</code>といった関数を使ってください。</li>
@@ -2066,7 +2071,7 @@ forall (m :: Type -&gt; Type). Alternative m =&gt; Boolean -&gt; m Unit
 これは、<code>guard</code>の呼び出しが、途中の配列に対して<code>filter</code>を使用するのと同じだということです。
 実践での場面にもよりますが、<code>filter</code>の代わりに<code>guard</code>を使いたいことは多いでしょう。
 これらが同じ結果になることを確認するために、<code>factors</code>の2つの定義を試してみてください。</p>
-<h2 id="演習-10"><a class="header" href="#演習-10">演習</a></h2>
+<h2 id="演習-2-2"><a class="header" href="#演習-2-2">演習</a></h2>
 <ol>
 <li>（簡単）関数<code>isPrime</code>を書いてください。
 この関数は整数の引数が素数であるかを調べます。
@@ -2219,7 +2224,7 @@ lengthTailRec arr = length' arr 0
 [3,2,1]
 </code></pre>
 <p><code>foldl</code>を使って<code>reverse</code>を書くことは、読者への課題として残しておきます。</p>
-<h2 id="演習-11"><a class="header" href="#演習-11">演習</a></h2>
+<h2 id="演習-3-2"><a class="header" href="#演習-3-2">演習</a></h2>
 <ol>
 <li>（簡単）<code>foldl</code>を使って真偽値配列の値が全て真か検査する関数<code>allTrue</code>を書いてください。</li>
 <li>（普通。テストなし）関数<code>foldl (==) false xs</code>が真を返すような配列<code>xs</code>とはどのようなものか説明してください。
@@ -2308,7 +2313,7 @@ allFiles' file = file : do
 <p>PSCiで新しいコードを試してみてください。
 同じ結果が返ってくるはずです。
 どちらのほうがわかりやすいかの選定はお任せします。</p>
-<h2 id="演習-12"><a class="header" href="#演習-12">演習</a></h2>
+<h2 id="演習-4-1"><a class="header" href="#演習-4-1">演習</a></h2>
 <ol>
 <li>
 <p>（簡単）ディレクトリの全てのサブディレクトリの中にある（ディレクトリを除く）全てのファイルを返すような関数<code>onlyFiles</code>を書いてみてください。</p>
@@ -2338,7 +2343,8 @@ Nothing
 <p>この章ではアルゴリズムを簡潔に表現するためにPureScriptでの再帰の基本を押さえました。
 また、独自の中置演算子や、マップ、絞り込みや畳み込みなどの配列に対する標準関数、及びこれらの概念を組み合わせた配列内包表記を導入しました。
 最後に、スタックオーバーフローエラーを回避するために末尾再帰を使用することの重要性、累算器引数を使用して末尾再帰形に関数を変換する方法を示しました。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="型クラス"><a class="header" href="#型クラス">型クラス</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="型クラス"><a class="header" href="#型クラス">型クラス</a></h1>
 <h2 id="この章の目標-4"><a class="header" href="#この章の目標-4">この章の目標</a></h2>
 <p>この章では、PureScriptの型システムにより可能になっている強力な抽象化の形式を導入します。
 そう、型クラスです。</p>
@@ -2475,7 +2481,7 @@ No type class instance was found for
 型クラスが定義されている同じモジュールで定義するか、型クラスに「属して」いる型と同じモジュールで定義するかです。
 これらとは別の場所で定義されるインスタンスは<a href="https://github.com/purescript/documentation/blob/master/language/Type-Classes.md#orphan-instances">「孤立インスタンス」</a>と呼ばれ、PureScriptコンパイラでは許されていません。
 この章の演習の幾つかでは、その型の型クラスインスタンスを定義できるように、型の定義を自分の<code>MySolutions</code>モジュールに複製する必要があります。</p>
-<h2 id="演習-13"><a class="header" href="#演習-13">演習</a></h2>
+<h2 id="演習-6"><a class="header" href="#演習-6">演習</a></h2>
 <ol>
 <li>
 <p>（簡単）<code>Show</code>インスタンスを<code>Point</code>に定義してください。
@@ -2518,7 +2524,7 @@ true
 <p><em>補足</em>：
 以下の例ではクラスシグネチャに<code>&lt;=</code>が含まれています。
 この文脈での<code>&lt;=</code>の使われ方は、<code>Eq</code>が<code>Ord</code>の上位クラスであり、比較演算子としての<code>&lt;=</code>の用途を表す意図はありません。
-後述の<a href="chapter6.html#%E4%B8%8A%E4%BD%8D%E3%82%AF%E3%83%A9%E3%82%B9">上位クラス</a>の節を参照してください。</p>
+後述の<a href="#上位クラス">上位クラス</a>の節を参照してください。</p>
 <pre><code class="language-haskell">data Ordering = LT | EQ | GT
 
 class Eq a &lt;= Ord a where
@@ -2650,7 +2656,7 @@ PSCiで以下の通りです。</p>
 <p>インスタンスを手作業で描く代わりに、ほとんどの作業をコンパイラにさせることができます。
 この<a href="https://github.com/purescript/documentation/blob/master/guides/Type-Class-Deriving.md">型クラス導出手引き</a>を見てください。
 そちらの情報が以下の演習を解く手助けになることでしょう。</p>
-<h2 id="演習-14"><a class="header" href="#演習-14">演習</a></h2>
+<h2 id="演習-1-3"><a class="header" href="#演習-1-3">演習</a></h2>
 <p>（簡単）次のnewtypeは複素数を表します。</p>
 <pre><code class="language-haskell">newtype Complex
   = Complex
@@ -2742,7 +2748,7 @@ forall (a :: Type). Semiring a =&gt; a -&gt; a
 <p>これらの2つの型クラスインスタンスは <code>prelude</code>ライブラリにあります。</p>
 <p>プログラムがコンパイルされると、<code>Show</code>の正しい型クラスのインスタンスは <code>show</code>の引数の推論された型に基づいて選ばれます。
 選択されたインスタンスが沢山のそうしたインスタンスの関係に依存しているかもしれませんが、このあたりの複雑さに開発者が関与することはありません。</p>
-<h2 id="演習-15"><a class="header" href="#演習-15">演習</a></h2>
+<h2 id="演習-2-3"><a class="header" href="#演習-2-3">演習</a></h2>
 <ol>
 <li>
 <p>（簡単）以下の宣言では型 <code>a</code>の要素の空でない配列の型を定義しています。</p>
@@ -2902,7 +2908,7 @@ secondElement xs = head (tail xs)
 <p>インスタンスを別のインスタンスに依存させることによって型クラスのインスタンス間の関係を表現できるように、いわゆる<em>上位クラス</em>を使って型クラス間の関係を表現できます。</p>
 <p>あるクラスのどんなインスタンスも、別のクラスのインスタンスである必要があるとき、後者の型クラスは前者の型クラスの上位クラスであるといいます。
 そしてクラス定義で逆向きの太い矢印 (<code>&lt;=</code>) を使って上位クラス関係を示します。</p>
-<p><a href="chapter6.html#ord">既に上位クラスの関係の例を目にしました</a>。
+<p><a href="#ord">既に上位クラスの関係の例を目にしました</a>。
 <code>Eq</code>クラスは<code>Ord</code>の上位クラスですし、<code>Semigroup</code>クラスは<code>Monoid</code>の上位クラスです。
 <code>Ord</code>クラスの全ての型クラスインスタンスについて、その同じ型に対応する <code>Eq</code>インスタンスが存在しなければなりません。
 これは理に適っています。
@@ -2911,9 +2917,9 @@ secondElement xs = head (tail xs)
 例えば、任意の<code>Ord</code>と<code>Eq</code>のインスタンスの対について、もし2つの値が<code>Eq</code>インスタンスの下で同値であるなら、<code>compare</code>関数は<code>EQ</code>を返すはずだと推定するのは理に適っています。
 言い換えれば、<code>a == b</code>が真であるのは<code>compare a b</code>が厳密に<code>EQ</code>に評価されるときなのです。
 法則のレベルでのこの関係は、<code>Eq</code>と<code>Ord</code>の間の上位クラス関係の正当性を示します。</p>
-<p>上位クラス関係を定義する別の理由となるのは、この2つのクラスの間に明白な "is-a" の関係があることです。
+<p>上位クラス関係を定義する別の理由となるのは、この2つのクラスの間に明白な “is-a” の関係があることです。
 下位クラスの全ての構成要素は、上位クラスの構成要素でもあるということです。</p>
-<h2 id="演習-16"><a class="header" href="#演習-16">演習</a></h2>
+<h2 id="演習-3-3"><a class="header" href="#演習-3-3">演習</a></h2>
 <ol>
 <li>
 <p>（普通）部分関数<code>unsafeMaximum :: Partial =&gt; Array Int -&gt; Int</code>を定義してください。
@@ -3061,7 +3067,7 @@ hashEqual = eq `on` hash
 この帰納的な仮定により、配列の残りの部分は同じハッシュ値を持ちますし、もし <code>Hashable a</code>インスタンスがこの法則を満たすなら、先頭の要素も同じハッシュ値を持つことがわかります。
 したがって、2つの配列は同じハッシュ値を持ち、<code>Hashable (Array a)</code>も同様に型クラス法則に従います。</p>
 <p>この章のソースコードには、 <code>Maybe</code>と <code>Tuple</code>型のインスタンスなど、他にも <code>Hashable</code>インスタンスの例が含まれています。</p>
-<h2 id="演習-17"><a class="header" href="#演習-17">演習</a></h2>
+<h2 id="演習-4-2"><a class="header" href="#演習-4-2">演習</a></h2>
 <ol>
 <li>
 <p>（簡単）PSCiを使って、定義した各インスタンスのハッシュ関数をテストしてください。
@@ -3098,7 +3104,8 @@ PureScriptの標準ライブラリから標準の型クラスを幾つか見て�
 型クラス法則は<em>等式推論</em>と呼ばれる、より大きな分野の一部です。
 そちらではプログラミング言語の性質と型システムがプログラムを論理的に追究するために使われています。
 これは重要な考え方で、本書では今後あらゆる箇所で立ち返る話題となるでしょう。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="アプリカティブによる検証"><a class="header" href="#アプリカティブによる検証">アプリカティブによる検証</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="アプリカティブによる検証"><a class="header" href="#アプリカティブによる検証">アプリカティブによる検証</a></h1>
 <h2 id="この章の目標-5"><a class="header" href="#この章の目標-5">この章の目標</a></h2>
 <p>この章では重要な抽象化と新たに出会うことになります。
 <code>Applicative</code>型クラスによって表現される<em>アプリカティブ関手</em>です。
@@ -3399,7 +3406,7 @@ Nothing
 <p>ところが<code>combineList</code>関数はどんな<code>Applicative</code>に対しても機能するのです。
 <code>Either err</code>を使ってエラーを発信する可能性を持たせたり、<code>r -&gt;</code>を使って大域的な構成を読み取る計算を組み合わせるためにも使えます。</p>
 <p><code>combineList</code>関数については、後ほど<code>Traversable</code>関手について考えるときに再訪します。</p>
-<h2 id="演習-18"><a class="header" href="#演習-18">演習</a></h2>
+<h2 id="演習-7"><a class="header" href="#演習-7">演習</a></h2>
 <ol>
 <li>（普通）数値演算子<code>+</code>、<code>-</code>、<code>*</code>、<code>/</code>の別のバージョンを書いてください。
 ただし省略可能な引数（つまり<code>Maybe</code>に包まれた引数）を扱って<code>Maybe</code>に包まれた値を返します。
@@ -3566,7 +3573,7 @@ pure ({ type: HomePhone, number: "555-555-5555" })
 &gt; validatePhoneNumber $ phoneNumber HomePhone "555.555.5555"
 invalid (["Field 'Number' did not match the required format"])
 </code></pre>
-<h2 id="演習-19"><a class="header" href="#演習-19">演習</a></h2>
+<h2 id="演習-1-4"><a class="header" href="#演習-1-4">演習</a></h2>
 <ol>
 <li>（簡単）正規表現<code>stateRegex :: Regex</code>を書いて文字列が2文字のアルファベットであることを確かめてください。
 <em>手掛かり</em>：<code>phoneNumberRegex</code>のソースコードを参照してみましょう。</li>
@@ -3669,7 +3676,7 @@ pure ((Just "Testing"))
 <p>他の巡回可能関手には、任意の型<code>a</code>についての<code>Array a</code>、<code>Tuple a</code>、<code>Either a</code>が含まれます。
 一般に、「容器」のようなほとんどのデータ型構築子は<code>Traversable</code>インスタンスを持っています。
 一例として、演習には二分木の型の<code>Traversable</code>インスタンスを書くことが含まれます。</p>
-<h2 id="演習-20"><a class="header" href="#演習-20">演習</a></h2>
+<h2 id="演習-2-4"><a class="header" href="#演習-2-4">演習</a></h2>
 <ol>
 <li>
 <p>（簡単）<code>Eq</code>と<code>Show</code>インスタンスを以下の2分木データ構造に対して書いてください。</p>
@@ -3741,7 +3748,8 @@ pure ((Just "Testing"))
 今回の場合、アプリカティブ関手は宣言的な流儀で書く手段を提供していましたが、これにより検証器が<em>どうやって</em>検証を実施するかではなく、<em>何を</em>検証すべきなのかを定義できました。
 一般にアプリカティブ関手が<em>領域特化言語</em>を設計する上で便利な道具になることを見ていきます。</p>
 <p>次の章では、これに関連する考え方である<em>モナド</em>クラスを見て、住所録の例をブラウザで実行させられるように拡張しましょう。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="作用モナド"><a class="header" href="#作用モナド">作用モナド</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="作用モナド"><a class="header" href="#作用モナド">作用モナド</a></h1>
 <h2 id="この章の目標-6"><a class="header" href="#この章の目標-6">この章の目標</a></h2>
 <p>前章では、<em>副作用</em>を扱うのに使う抽象化であるアプリカティブ関手を導入しました。
 副作用とは省略可能な値、エラー文言、検証などです。
@@ -3987,7 +3995,7 @@ userCity root = do
 持ち上げられた関数の引数は互いに独立していますから、これはまさにその通りです。
 <code>Monad</code>型クラスは計算が前の計算の結果に依存できるようになっており、同じようにはなりません。
 つまりモナドは副作用を順番に組み合わせなければならないのです。</p>
-<h2 id="演習-21"><a class="header" href="#演習-21">演習</a></h2>
+<h2 id="演習-8"><a class="header" href="#演習-8">演習</a></h2>
 <ol>
 <li>
 <p>（簡単）3つ以上の要素がある配列の3つ目の要素を返す関数<code>third</code>を書いてください。
@@ -4326,7 +4334,7 @@ simulate x0 v0 time =
 </code></pre>
 <p>局所的な変更可能状態を扱うとき、<code>ST</code>作用は短いJavaScriptを生成する良い方法となります。
 作用を持つ繰り返しを生成する<code>for</code>、<code>foreach</code>、<code>while</code>のような動作を一緒に使うときは特にそうです。</p>
-<h2 id="演習-22"><a class="header" href="#演習-22">演習</a></h2>
+<h2 id="演習-1-5"><a class="header" href="#演習-1-5">演習</a></h2>
 <ol>
 <li>（普通）<code>safeDivide</code>関数を書き直し、もし分母がゼロなら<code>throwException</code>を使って文言<code>"div zero"</code>の例外を投げるようにしたものを<code>exceptionDivide</code>としてください。</li>
 <li>（普通）関数<code>estimatePi :: Int -&gt; Number</code>を書いてください。
@@ -4639,7 +4647,7 @@ formField name placeholder value setValue =
 しかし、コンポーネントの仕組みを完全に理解するためには、この章に付随するソースをお読みください。</p>
 <p>明らかに、このユーザーインターフェースには改善すべき点が沢山あります。
 演習ではアプリケーションがより使いやすくなるような方法を追究していきます。</p>
-<h2 id="演習-23"><a class="header" href="#演習-23">演習</a></h2>
+<h2 id="演習-2-5"><a class="header" href="#演習-2-5">演習</a></h2>
 <p>以下の演習では<code>src/Main.purs</code>を変更してください。
 これらの演習には単体試験はありません。</p>
 <ol>
@@ -4683,7 +4691,8 @@ type Errors = Array ValidationError
 <code>Effect</code>モナドを使いました。</li>
 </ul>
 <p><code>Effect</code>モナドは実際のPureScriptコードにおける基本的なツールです。本書ではこのあとも、多くの場面で副作用を処理するために使っていきます。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="非同期作用"><a class="header" href="#非同期作用">非同期作用</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="非同期作用"><a class="header" href="#非同期作用">非同期作用</a></h1>
 <h2 id="この章の目標-7"><a class="header" href="#この章の目標-7">この章の目標</a></h2>
 <p>この章では<code>Aff</code>モナドに集中します。
 これは<code>Effect</code>モナドに似ていますが、<em>非同期</em>な副作用を表現するものです。
@@ -4767,7 +4776,7 @@ copyFile file1 file2 = do
 <pre><code class="language-hs">attempt :: forall a. Aff a -&gt; Aff (Either Error a)
 </code></pre>
 <p>読者ならきっと、前の章から概念の知識を引き出し、その知識と上の<code>copyFile</code>の例で学んだ新しい<code>Aff</code>パターンを組み合わせることで、以下の演習に挑戦できるでしょう。</p>
-<h2 id="演習-24"><a class="header" href="#演習-24">演習</a></h2>
+<h2 id="演習-9"><a class="header" href="#演習-9">演習</a></h2>
 <ol>
 <li>
 <p>（簡単）2つのテキストファイルを連結する関数<code>concatenateFiles</code>を書いてください。</p>
@@ -4824,7 +4833,7 @@ getUrl url = do
 unit
 {"data":{"id":1,"email":"george.bluth@reqres.in","first_name":"George","last_name":"Bluth", ...}}
 </code></pre>
-<h2 id="演習-25"><a class="header" href="#演習-25">演習</a></h2>
+<h2 id="演習-1-6"><a class="header" href="#演習-1-6">演習</a></h2>
 <ol>
 <li>（簡単）与えられたURLにHTTPの<code>GET</code>を要求し、応答本文をファイルに書き込む関数<code>writeGet</code>を書いてください。</li>
 </ol>
@@ -4911,7 +4920,7 @@ unit
 ]
 </code></pre>
 <p>利用できる並列関数の完全な一覧は<a href="https://pursuit.purescript.org/packages/purescript-parallel/docs/Control.Parallel">Pursuitの<code>parallel</code>のドキュメント</a>にあります。<a href="https://github.com/purescript-contrib/purescript-aff#parallel-execution">parallelのaffのドキュメントの節</a>にもより多くの例が含まれています。</p>
-<h2 id="演習-26"><a class="header" href="#演習-26">演習</a></h2>
+<h2 id="演習-2-6"><a class="header" href="#演習-2-6">演習</a></h2>
 <ol>
 <li>
 <p>（簡単）前の<code>concatenateMany</code>関数と同じシグネチャを持つ<code>concatenateManyParallel</code>関数を書いてください。
@@ -4959,7 +4968,8 @@ $ cat c/a/a.txt
 <li><code>affjax</code>ライブラリを使って非同期にHTTPリクエストする。</li>
 <li><code>parallel</code>ライブラリを使って並列に非同期コードを走らせる。</li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="外部関数インターフェース"><a class="header" href="#外部関数インターフェース">外部関数インターフェース</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="外部関数インターフェース"><a class="header" href="#外部関数インターフェース">外部関数インターフェース</a></h1>
 <h2 id="この章の目標-8"><a class="header" href="#この章の目標-8">この章の目標</a></h2>
 <p>本章ではPureScriptの<em>外部関数インターフェース</em> (foreign function interface; <em>FFI</em>) を紹介します。
 これによりPureScriptコードからJavaScriptコードへの呼び出し、及びその逆が可能になります。
@@ -5169,7 +5179,7 @@ lebab --replace output/ --transform arrow,arrow-return
   m + n | 0;
 </code></pre>
 <p>本書の残りの例では入れ子の関数の代わりに矢印関数を使います。</p>
-<h2 id="演習-27"><a class="header" href="#演習-27">演習</a></h2>
+<h2 id="演習-10"><a class="header" href="#演習-10">演習</a></h2>
 <ol>
 <li>（普通）<code>Test.MySolutions</code>モジュールの中に箱の体積を求めるJavaScriptの関数<code>volumeFn</code>を書いてください。
 <code>Data.Function.Uncurried</code>の梱包<code>Fn</code>を使ってください。</li>
@@ -5177,13 +5187,19 @@ lebab --replace output/ --transform arrow,arrow-return
 </ol>
 <h2 id="単純な型を渡す"><a class="header" href="#単純な型を渡す">単純な型を渡す</a></h2>
 <p>以下のデータ型はPureScriptとJavaScriptの間でそのまま渡し合うことができます。</p>
-<div class="table-wrapper"><table><thead><tr><th>PureScript</th><th>JavaScript</th></tr></thead><tbody>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>PureScript</th><th>JavaScript</th></tr>
+</thead>
+<tbody>
 <tr><td>Boolean</td><td>Boolean</td></tr>
 <tr><td>String</td><td>String</td></tr>
 <tr><td>Int, Number</td><td>Number</td></tr>
 <tr><td>Array</td><td>Array</td></tr>
 <tr><td>Record</td><td>Object</td></tr>
-</tbody></table>
+</tbody>
+</table>
 </div>
 <p><code>String</code>と<code>Number</code>という原始型の例は既に見てきました。
 ここから<code>Array</code>や<code>Record</code>（JavaScriptでは<code>Object</code>）といった構造的な型を眺めていきます。</p>
@@ -5233,7 +5249,7 @@ foreign import addComplex :: Complex -&gt; Complex -&gt; Complex
 PureScriptはJavaScriptのコードに型検査を適用できないからです。
 この型安全性の配慮について後のJSONの節でより詳しく解説していきます。
 型の不整合から身を守る手法についても押さえます。</p>
-<h2 id="演習-28"><a class="header" href="#演習-28">演習</a></h2>
+<h2 id="演習-1-7"><a class="header" href="#演習-1-7">演習</a></h2>
 <ol>
 <li>（普通）<code>Complex</code>な数の配列を取って別の複素数の配列として累計の和を返すJavaScriptの関数<code>cumulativeSumsComplex</code>（と対応するPureScriptの外部インポート）を書いてください。</li>
 </ol>
@@ -5345,7 +5361,7 @@ isEmpty = isUndefined &lt;&lt;&lt; undefinedHead
   }
 };
 </code></pre>
-<h2 id="演習-29"><a class="header" href="#演習-29">演習</a></h2>
+<h2 id="演習-2-7"><a class="header" href="#演習-2-7">演習</a></h2>
 <ol>
 <li>
 <p>（普通）二次多項式 \( a x ^ 2 + b x + c = 0 \) を表現するレコードが与えられているとします。</p>
@@ -5533,7 +5549,7 @@ import Effect.Aff
 unit
 5.0
 </code></pre>
-<h2 id="演習-30"><a class="header" href="#演習-30">演習</a></h2>
+<h2 id="演習-3-4"><a class="header" href="#演習-3-4">演習</a></h2>
 <p>上の節の演習はまだやるべきことの一覧にあります。
 もし何か良い演習の考えがあればご提案ください。</p>
 <h2 id="json"><a class="header" href="#json">JSON</a></h2>
@@ -5680,7 +5696,7 @@ Map String Int
 &gt; mapSetFoo myMap
 (Right (fromFoldable [(Tuple "Foo" 42),(Tuple "cat" 2),(Tuple "hat" 1)]))
 </code></pre>
-<h2 id="演習-31"><a class="header" href="#演習-31">演習</a></h2>
+<h2 id="演習-4-3"><a class="header" href="#演習-4-3">演習</a></h2>
 <ol>
 <li>
 <p>（普通）<code>Map</code>中の全てのバリューの<code>Set</code>を返すJavaScriptの関数とPureScriptの梱包<code>valuesOfMap :: Map String Int -&gt; Either JsonDecodeError (Set Int)</code>を書いてください。</p>
@@ -5865,7 +5881,7 @@ webブラウザなどです。</p>
 
 alert $ "Error: " &lt;&gt; err &lt;&gt; ". Loading examplePerson"
 </code></pre>
-<h2 id="演習-32"><a class="header" href="#演習-32">演習</a></h2>
+<h2 id="演習-5-1"><a class="header" href="#演習-5-1">演習</a></h2>
 <ol>
 <li>（普通）<code>localStorage</code>オブジェクトの <code>removeItem</code>メソッドの梱包を書き、
 <code>Effect.Storage</code>モジュールに外部関数を追加してください</li>
@@ -6077,7 +6093,7 @@ shout a = show a &lt;&gt; "!!!"
 
 shout(showNumber)(42);
 </code></pre>
-<h3 id="演習-33"><a class="header" href="#演習-33">演習</a></h3>
+<h3 id="演習-6-1"><a class="header" href="#演習-6-1">演習</a></h3>
 <ol>
 <li>
 <p>（簡単）これらの型の実行時の表現は何でしょうか。</p>
@@ -6129,7 +6145,8 @@ forall a. Ord a =&gt; Array a -&gt; Boolean
 main();
 </code></pre>
 <p><code>spago bundle-app --to</code>または<code>spago run</code>を使用する場合、<code>Main</code>モジュールが定義されている場合は常に、この<code>main</code>の呼び出しを自動的に生成できます。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="モナドな冒険"><a class="header" href="#モナドな冒険">モナドな冒険</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="モナドな冒険"><a class="header" href="#モナドな冒険">モナドな冒険</a></h1>
 <h2 id="この章の目標-9"><a class="header" href="#この章の目標-9">この章の目標</a></h2>
 <p>この章の目標は<em>モナド変換子</em>について学ぶことです。
 モナド変換子は異なるモナドから提供された副作用を合成する方法を提供します。
@@ -6246,7 +6263,7 @@ runState  :: forall s a. State s a -&gt; s -&gt; Tuple a s
 … ^D
 21
 </code></pre>
-<h2 id="演習-34"><a class="header" href="#演習-34">演習</a></h2>
+<h2 id="演習-11"><a class="header" href="#演習-11">演習</a></h2>
 <ol>
 <li>
 <p>（簡単）上の例で、<code>execState</code>を<code>runState</code>や<code>evalState</code>で置き換えると結果はどうなるでしょうか。</p>
@@ -6308,7 +6325,7 @@ createUserAsAdmin = runAsAdmin createUser
 <p><code>Reader</code>モナドを計算するには、大域的な設定を与える<code>runReader</code>関数を使います。</p>
 <pre><code class="language-haskell">runReader :: forall r a. Reader r a -&gt; r -&gt; a
 </code></pre>
-<h2 id="演習-35"><a class="header" href="#演習-35">演習</a></h2>
+<h2 id="演習-1-8"><a class="header" href="#演習-1-8">演習</a></h2>
 <p>以下の演習では、 <code>Reader</code>モナドを使って、字下げのついた文書を出力するための小さなライブラリを作っていきます。
 「大域的な設定」は、現在の字下げの深さを示す数になります。</p>
 <pre><code class="language-haskell">type Level = Int
@@ -6400,7 +6417,7 @@ runWriter  :: forall w a. Writer w a -&gt; Tuple a w
 &gt; runWriter (gcdLog 21 15)
 Tuple 3 ["gcdLog 21 15","gcdLog 6 15","gcdLog 6 9","gcdLog 6 3","gcdLog 3 3"]
 </code></pre>
-<h2 id="演習-36"><a class="header" href="#演習-36">演習</a></h2>
+<h2 id="演習-2-8"><a class="header" href="#演習-2-8">演習</a></h2>
 <ol>
 <li>
 <p>（普通）<code>Writer</code>モナドと <code>monoid</code>パッケージの <code>Additive Int</code>モノイドを使うように、上の
@@ -6591,7 +6608,7 @@ split = do
 例えば<code>throwError</code>の呼び出しは、1回目は<code>WriteT</code>へ、2回目は<code>StateT</code>へ、と2回持ちあげなければなりません。
 小さなモナド変換子スタックならなんとかなりますが、そのうちすぐに不便になるでしょう。</p>
 <p>幸いなことに、これから見るような型クラス推論によって提供されるコードの自動生成を使うと、ほとんどの「重労働」を任せられます。</p>
-<h2 id="演習-37"><a class="header" href="#演習-37">演習</a></h2>
+<h2 id="演習-3-5"><a class="header" href="#演習-3-5">演習</a></h2>
 <ol>
 <li>
 <p>（簡単）<code>Identity</code>関手を土台とする<code>ExceptT</code>モナド変換子を使って、2つの数の商を求める関数
@@ -6747,7 +6764,7 @@ lower = do
 </code></pre>
 <p>繰り返しになりますが、これはモナド変換子が齎す再利用性の威力を示しています。
 標準的な抽象化を再利用することで、宣言型スタイルのバックトラック構文解析器を、ほんの数行のコードで書くことができました。</p>
-<h2 id="演習-38"><a class="header" href="#演習-38">演習</a></h2>
+<h2 id="演習-4-4"><a class="header" href="#演習-4-4">演習</a></h2>
 <ol>
 <li>
 <p>（簡単）<code>string</code>構文解析器の実装から<code>lift</code>関数の呼び出しを取り除いてください。
@@ -6947,7 +6964,7 @@ runGame env = do
 <pre><code class="language-haskell">  RL.setLineHandler (lineHandler initialGameState) interface
   RL.prompt interface
 </code></pre>
-<h2 id="演習-39"><a class="header" href="#演習-39">演習</a></h2>
+<h2 id="演習-5-2"><a class="header" href="#演習-5-2">演習</a></h2>
 <ol>
 <li>
 <p>（普通）ゲームの格子上にある全てのゲームアイテムをユーザの持ちものに移動する新しいコマンド <code>cheat</code>を実装してください。
@@ -7015,7 +7032,7 @@ runGame env = do
 <code>optparse</code>は多様なコマンドライン解析器を構築するために使える様々な修飾子について、大部の<a href="https://pursuit.purescript.org/packages/purescript-optparse">ドキュメント</a>を提供しています。</p>
 <p>アプリカティブ演算子による記法を使うことで、コマンドラインインターフェイスの簡潔で宣言的な仕様を与えられた点に注目です。
 加えて、新しいコマンドライン引数を追加するのは単純で、<code>runGame</code>に新しい関数引数を追加し、<code>env</code>の定義中で<code>&lt;*&gt;</code>を使って追加の引数まで<code>runGame</code>を持ち上げるだけでできます。</p>
-<h2 id="演習-40"><a class="header" href="#演習-40">演習</a></h2>
+<h2 id="演習-6-2"><a class="header" href="#演習-6-2">演習</a></h2>
 <ol>
 <li>（普通）<code>GameEnvironment</code>レコードに新しい真偽値のプロパティ<code>cheatMode</code>を追加してください。
 また、<code>optparse</code>の構成に、チートモードを有効にする新しいコマンドラインフラグ<code>-c</code>を追加してください。
@@ -7032,7 +7049,8 @@ runGame env = do
 標準的なモナド変換子を組み合わせることにより、<code>Alternative</code>や<code>MonadPlus</code>のような標準的な抽象化を使用して、役に立つモナドを構築できました。</p>
 <p>モナド変換子は表現力の高いコードの優れた実演となっています。
 これは高階多相や多変数型クラスなどの高度な型システムの機能を利用することによって記述できるものです。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="canvasグラフィックス"><a class="header" href="#canvasグラフィックス">Canvasグラフィックス</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="canvasグラフィックス"><a class="header" href="#canvasグラフィックス">Canvasグラフィックス</a></h1>
 <h2 id="この章の目標-10"><a class="header" href="#この章の目標-10">この章の目標</a></h2>
 <p>この章は<code>canvas</code>パッケージに焦点を当てる発展的な例となります。
 このパッケージはPureScriptでHTML5のCanvas APIを使用して2Dグラフィックスを生成する手段を提供します。</p>
@@ -7177,7 +7195,7 @@ translate dx dy shape = shape
 </code></pre>
 <p>そしてもう一度<code>html/index.html</code>を開き、結果を確認してください。
 キャンバスに3つの異なる図形が描画されるはずです。</p>
-<h2 id="演習-41"><a class="header" href="#演習-41">演習</a></h2>
+<h2 id="演習-12"><a class="header" href="#演習-12">演習</a></h2>
 <ol>
 <li>
 <p>（簡単）これまでの各例について、<code>strokePath</code>関数や<code>setStrokeStyle</code>関数を使ってみましょう。</p>
@@ -7358,7 +7376,7 @@ Type -&gt; Type
 </code></pre>
 <p><code>html/index.html</code>ファイルを開いてみましょう。
 緑の四角形が表示され、何度かキャンバスをクリックするとキャンバスの中心の周りで回転するはずです。</p>
-<h2 id="演習-42"><a class="header" href="#演習-42">演習</a></h2>
+<h2 id="演習-1-9"><a class="header" href="#演習-1-9">演習</a></h2>
 <ol>
 <li>（簡単）パスの線描と塗り潰しを同時に行う高階関数を書いてください。
 その関数を使用して<code>Random.purs</code>の例を書き直してください。</li>
@@ -7379,7 +7397,7 @@ system</em>）を描画する関数を記述します。</p>
 R -&gt; R
 F -&gt; FLFRRFLF
 </code></pre>
-<p>配列 "FRRFRRFRR" から始めて処理を繰り返すと、次のような経過を辿ります。</p>
+<p>配列 “FRRFRRFRR” から始めて処理を繰り返すと、次のような経過を辿ります。</p>
 <pre><code class="language-text">FRRFRRFRR
 FLFRRFLFRRFLFRRFLFRRFLFRRFLFRR
 FLFRRFLFLFLFRRFLFRRFLFRRFLFLFLFRRFLFRRFLFRRFLF...
@@ -7539,7 +7557,7 @@ lsystem init prod interpret n state = go init n
 </code></pre>
 <p><code>html/index.html</code>を開いてみましょう。
 キャンバスにコッホ曲線が描画されるのがわかると思います。</p>
-<h2 id="演習-43"><a class="header" href="#演習-43">演習</a></h2>
+<h2 id="演習-2-9"><a class="header" href="#演習-2-9">演習</a></h2>
 <ol>
 <li>
 <p>（簡単）<code>strokePath</code>の代わりに <code>fillPath</code>を使用するように、上のL-Systemの例を変更してください。
@@ -7603,7 +7621,8 @@ M -&gt; MRFRMLFLMLFLMRFRM
 </code></pre>
 <p>この手法は<code>drawing</code>パッケージで採られており、描画前に様々な方法でシーンをデータとして操作できる柔軟性を齎しています。</p>
 <p>キャンバスに描画されるゲームの例については<a href="https://github.com/JordanMartinez/purescript-cookbook/blob/master/README.md#recipes">cookbook</a>の「Behavior」と「Signal」のレシピを見てください。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="テストの自動生成"><a class="header" href="#テストの自動生成">テストの自動生成</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="テストの自動生成"><a class="header" href="#テストの自動生成">テストの自動生成</a></h1>
 <h2 id="この章の目標-11"><a class="header" href="#この章の目標-11">この章の目標</a></h2>
 <p>この章では、テスティングの問題に対する、型クラスの特に洗練された応用について示します。
 <em>どのように</em>テストするのかをコンパイラに教えるのではなく、コードが<em>どのような</em>性質を持っているべきかを教えることでテストします。
@@ -7675,7 +7694,7 @@ not equal to expected:
 [-888285,-822215,-196136,-116841,618343,887447]
 </code></pre>
 <p>入力 <code>xs</code>が無作為に選ばれた数の配列として生成されていることに注目してください。</p>
-<h2 id="演習-44"><a class="header" href="#演習-44">演習</a></h2>
+<h2 id="演習-13"><a class="header" href="#演習-13">演習</a></h2>
 <ol>
 <li>（簡単）配列に空の配列を統合しても元の配列は変更されないことを確かめる性質を書いてください。
 <em>補足</em>：この新しい性質は冗長です。
@@ -7713,7 +7732,7 @@ ints = id
   eq (ints $ mergePoly (sort xs) (sort ys)) (sort $ xs &lt;&gt; ys)
 </code></pre>
 <p>ここで、<code>ints</code>関数が不明な型の曖昧さを解消するために使われているため、<code>xs</code>と<code>ys</code>は型<code>Array Int</code>を持っています。</p>
-<h2 id="演習-45"><a class="header" href="#演習-45">演習</a></h2>
+<h2 id="演習-1-10"><a class="header" href="#演習-1-10">演習</a></h2>
 <ol>
 <li>（簡単）<code>xs</code>と<code>ys</code>の型を<code>Array Boolean</code>に強制する関数<code>bools</code>を書き、<code>mergePoly</code>をその型でテストする性質を追加してください。</li>
 <li>（普通）標準関数から（例えば<code>arrays</code>パッケージから）1つ関数を選び、適切なエラー文言を含めてQuickCheckの性質を書いてください。
@@ -7797,7 +7816,7 @@ false
 </code></pre>
 <p>ここでは、引数 <code>t</code>は <code>Tree Number</code>型の無作為に生成された木です。
 型引数は、同値関数 <code>treeOfInt</code>によって明確にされています。</p>
-<h2 id="演習-46"><a class="header" href="#演習-46">演習</a></h2>
+<h2 id="演習-2-10"><a class="header" href="#演習-2-10">演習</a></h2>
 <ol>
 <li>（普通）<code>a-z</code>の範囲から無作為に選ばれた文字の集まりを生成する
 <code>Arbitrary</code>インスタンスを持つ、<code>String</code>のnewtypeを作ってください。
@@ -7915,7 +7934,7 @@ Success : Success : ...
 <p><code>quickCheckPure</code>は乱数の種、生成するテスト項目数、テストする性質の3つの引数を取ります。
 もし全てのテスト項目が成功したら、<code>Success</code>データ構築子の配列がコンソールに出力されます。</p>
 <p><code>quickCheckPure</code>は、性能ベンチマークの入力データ生成や、webアプリケーションのフォームデータ例を無作為に生成するというような状況で便利かもしれません。</p>
-<h2 id="演習-47"><a class="header" href="#演習-47">演習</a></h2>
+<h2 id="演習-3-6"><a class="header" href="#演習-3-6">演習</a></h2>
 <ol>
 <li>
 <p>（簡単）<code>Byte</code>と <code>Sorted</code>型構築子についての <code>Coarbitrary</code>インスタンスを書いてください。</p>
@@ -7948,7 +7967,8 @@ Success : Success : ...
 <li><code>Arbitrary</code>と<code>Coarbitrary</code>型クラスによって定型的なテストコードの自動生成を可能にする方法や、高階な性質のテストを可能にする方法を見ました。</li>
 <li>独自のデータ型に対して <code>Arbitrary</code>と <code>Coarbitrary</code>インスタンスを実装する方法を見ました。</li>
 </ul>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="領域特化言語"><a class="header" href="#領域特化言語">領域特化言語</a></h1>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="領域特化言語"><a class="header" href="#領域特化言語">領域特化言語</a></h1>
 <h2 id="この章の目標-12"><a class="header" href="#この章の目標-12">この章の目標</a></h2>
 <p>この章では多数の標準的な手法を使い、PureScriptにおける<em>領域特化言語</em>（または<em>DSL</em>）の実装について探求していきます。</p>
 <p>領域特化言語とは、特定の問題領域での開発に適した言語のことです。
@@ -8172,7 +8192,7 @@ unit
 <p>しかし、基盤をなすデータ表現は全く変更されなかったので、<code>render</code>関数を変更する必要はなかったことにも注目してください。
 これはスマート構築子による手法の利点のひとつです。
 外部APIの使用者によって認識される表現から、モジュールの内部データ表現を分離できるのです。</p>
-<h2 id="演習-48"><a class="header" href="#演習-48">演習</a></h2>
+<h2 id="演習-14"><a class="header" href="#演習-14">演習</a></h2>
 <ol>
 <li>
 <p>（簡単）<code>Data.DOM.Smart</code>モジュールで <code>render</code>を使った新しいHTML文書の作成を試してみましょう。</p>
@@ -8258,7 +8278,7 @@ height = AttributeKey "height"
 &lt;img src="cat.jpg" width="100" height="200" /&gt;
 unit
 </code></pre>
-<h2 id="演習-49"><a class="header" href="#演習-49">演習</a></h2>
+<h2 id="演習-1-11"><a class="header" href="#演習-1-11">演習</a></h2>
 <ol>
 <li>
 <p>（簡単）ピクセルまたはパーセントの何れかの長さを表すデータ型を作成してください。
@@ -8443,7 +8463,7 @@ PSCiで、次のようにすれば新しいモナドのAPIを試すことがで�
 &lt;p&gt;&lt;img src="cat.jpg" /&gt;A cat&lt;/p&gt;
 unit
 </code></pre>
-<h2 id="演習-50"><a class="header" href="#演習-50">演習</a></h2>
+<h2 id="演習-2-11"><a class="header" href="#演習-2-11">演習</a></h2>
 <ol>
 <li>（普通）<code>ContentF</code>型に新しいデータ構築子を追加して、生成されたHTMLにコメントを出力する新しい動作<code>comment</code>に対応してください。
 <code>liftF</code>を使ってこの新しい動作を実装してください。
@@ -8557,7 +8577,7 @@ render e = evalState (execWriterT (renderElement e)) 0
 unit
 </code></pre>
 <p>複数回の<code>newName</code>の呼び出しの結果が、実際に一意な名前になっていることも確かめられます。</p>
-<h2 id="演習-51"><a class="header" href="#演習-51">演習</a></h2>
+<h2 id="演習-3-7"><a class="header" href="#演習-3-7">演習</a></h2>
 <ol>
 <li>
 <p>（普通）使用者から <code>Element</code>型を隠蔽すると、更にAPIを簡素にできます。
@@ -8611,6 +8631,11 @@ unit
 
         </div>
 
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
 
 
 
@@ -8619,13 +8644,13 @@ unit
         </script>
 
 
-        <script src="elasticlunr.min.js"></script>
-        <script src="mark.min.js"></script>
-        <script src="searcher.js"></script>
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
 
-        <script src="clipboard.min.js"></script>
-        <script src="highlight.js"></script>
-        <script src="book.js"></script>
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
 
         <!-- Custom JS scripts -->
 
@@ -8636,6 +8661,7 @@ unit
             });
         });
         </script>
+
 
     </div>
     </body>
