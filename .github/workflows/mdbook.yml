@@ -38,9 +38,9 @@ jobs:
         run: |
           version=$(purs --version)
           today=$(date -I)
-          echo -e "\n## Release\n" >> README.md
-          echo -e "PureScript v$version\n" >> README.md
-          echo -e "Published on $today" >> README.md
+          echo -e "\n\n## リリース\n" >> ./text-ja/index.md
+          echo -e "PureScript v$version\n" >> ./text-ja/index.md
+          echo -e "公開日 $today" >> ./text-ja/index.md
 
       - name: Setup Pages
         id: pages
