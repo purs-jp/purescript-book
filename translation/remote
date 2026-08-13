@@ -1,0 +1,3 @@
+#!/bin/sh
+set -eu
+git remote add mainstream https://github.com/purescript-contrib/purescript-book
