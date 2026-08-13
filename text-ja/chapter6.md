@@ -184,7 +184,7 @@ No type class instance was found for
 ## 演習
 
 1. （簡単）`Show`インスタンスを`Point`に定義してください。
-   前の章の`showPoint`関数と同じ出力に一致するようにしてください。
+   第4章の`showPoint`関数と同じ出力に一致するようにしてください。
    *補足*：`Point`はここでは（`type`同義語ではなく）`newtype`です。
    そのため`show`の仕方を変えられます。
    こうでもしないとレコードへの既定の`Show`インスタンスから逃れられません。
@@ -440,7 +440,7 @@ class Functor f where
 4. （簡単）（`newtype`を介して）`Ring`インスタンスを`Complex`に導出してください。
    *補足*：代わりにこのインスタンスを手作業で書くこともできますが、そう手軽にはできません。
 
-    以下は前章からの`Shape`のADTです。
+    以下は第4章からの`Shape`のADTです。
 
     ```haskell
     {{#include ../exercises/chapter6/test/no-peeking/Solutions.purs:Shape}}
@@ -448,7 +448,7 @@ class Functor f where
 
 5. （普通）（`Generic`を介して）`Show`インスタンスを`Shape`に導出してください。
    コードの量はどのくらいになりましたか。
-   また、前の章の`showShape`と比較して`String`の出力はどうなりましたか。
+   また、第4章の`showShape`と比較して`String`の出力はどうなりましたか。
    *手掛かり*：[型クラス導出](https://github.com/purescript/documentation/blob/master/guides/Type-Class-Deriving.md)手引きの[`Generic`から導出する](https://github.com/purescript/documentation/blob/master/guides/Type-Class-Deriving.md#deriving-from-generic)節を見てください。
 
 ## 型クラス制約

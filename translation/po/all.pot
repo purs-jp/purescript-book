@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2024-08-05 08:18+0900\n"
+"POT-Creation-Date: 2026-08-14 08:42+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17528,10 +17528,9 @@ msgstr ""
 #, markdown-text
 msgid ""
 "(Easy) Define a `Show` instance for `Point`. Match the same output as the "
-"`showPoint` function from the previous chapter. _Note:_ Point is now a "
-"`newtype` (instead of a `type` synonym), which allows us to customize how to "
-"`show` it. Otherwise, we'd be stuck with the default `Show` instance for "
-"records."
+"`showPoint` function from chapter 4. _Note:_ Point is now a `newtype` "
+"(instead of a `type` synonym), which allows us to customize how to `show` "
+"it. Otherwise, we'd be stuck with the default `Show` instance for records."
 msgstr ""
 
 #. type: Plain text
@@ -18131,7 +18130,7 @@ msgstr ""
 #. type: Plain text
 #: ../text/chapter6.md:376
 #, markdown-text, no-wrap
-msgid "    Here's the `Shape` ADT from the previous chapter:\n"
+msgid "    Here's the `Shape` ADT from chapter 4:\n"
 msgstr ""
 
 #. type: Plain text
@@ -18149,8 +18148,8 @@ msgstr ""
 #, markdown-text
 msgid ""
 "(Medium) Derive (via `Generic`) a `Show` instance for `Shape`. How does the "
-"amount of code written and `String` output compare to `showShape` from the "
-"previous chapter? _Hint_: See the [Deriving from "
+"amount of code written and `String` output compare to `showShape` from "
+"chapter 4? _Hint_: See the [Deriving from "
 "`Generic`](https://github.com/purescript/documentation/blob/master/guides/Type-Class-Deriving.md#deriving-from-generic) "
 "section of the [Type Class "
 "Deriving](https://github.com/purescript/documentation/blob/master/guides/Type-Class-Deriving.md) "
